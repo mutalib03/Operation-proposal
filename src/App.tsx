@@ -285,16 +285,39 @@ export default function App() {
   // Try to play as soon as the app mounts. If the browser blocks it,
   // start on the very first tap, click or key press anywhere on the page.
   useEffect(() => {
+    let hasInteracted = false;
     const events = ["pointerup", "touchend", "click", "keydown"] as const;
-    const stop = () => events.forEach((e) => window.removeEventListener(e, start));
+    
+    const stop = () => {
+      hasInteracted = true;
+      events.forEach((e) => window.removeEventListener(e, start));
+    };
+
     function start() {
       audio.play().then(stop).catch(() => {});
     }
-    audio.play().catch(() => {
+
+    audio.play().then(() => {
+      hasInteracted = true;
+    }).catch(() => {
       events.forEach((e) => window.addEventListener(e, start, { passive: true }));
     });
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        audio.pause();
+      } else {
+        if (hasInteracted) {
+          audio.play().catch(() => {});
+        }
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
     return () => {
       stop();
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       audio.pause();
     };
   }, [audio]);
