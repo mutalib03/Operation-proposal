@@ -1,6 +1,6 @@
 // ✏️ Edit everything the site shows from this one file.
 export const CONFIG = {
-  proposer: "Ijaiya",
+  proposer: "Ayodeji",
   // ✏️ Fill these in once the date is confirmed. Leave "" until then.
   // Format: "2026-12-19T17:00:00+01:00" (Lagos time is +01:00)
  eventISO: "2026-11-29T17:00:00+01:00",

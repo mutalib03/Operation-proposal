@@ -231,7 +231,6 @@ function Dossier() {
       <Reveal className="finale">
         <svg viewBox="0 0 24 24" className="big-heart" aria-hidden="true"><path d={HEART} /></svg>
         <p className="script fin-script">See you there</p>
-        <p className="foot">Delete this link after the day. She snoops.</p>
       </Reveal>
     </main>
   );
