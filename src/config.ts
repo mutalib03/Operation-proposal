@@ -6,7 +6,7 @@ export const CONFIG = {
  eventISO: "2026-11-29T17:00:00+01:00",
 eventEndISO: "2026-11-29T21:00:00+01:00",
   venueName: "The Good Place",
-  venueAddress: "19 Oduduwa Cres, Ikeja GRA, Lagos 101233, Lagos",
+  venueAddress: "The Good House, Ikeja, 19 Oduduwa Cres, Ikeja GRA, Lagos 101233, Lagos",
   dressCode: "", // optional, leave empty to hide
   arriveBy: "", // optional, e.g. "4:30 PM"
   song: "/liberian-girl.mp3", // put the mp3 in /public
